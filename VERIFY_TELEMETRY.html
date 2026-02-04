@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <title>✅ Vérification Télémétrie Intégrée</title>
+    <style>
+        body {
+            font-family: monospace;
+            background: #1a1a2e;
+            color: #fff;
+            padding: 20px;
+        }
+
+        .test {
+            margin: 10px 0;
+            padding: 10px;
+            background: #333;
+            border-left: 3px solid #0f0;
+        }
+
+        .pass {
+            border-left-color: #00ff88;
+            color: #00ff88;
+        }
+
+        .fail {
+            border-left-color: #ff6b6b;
+            color: #ff6b6b;
+        }
+
+        h1 {
+            color: #00e5ff;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>🧪 VÉRIFICATION - TÉLÉMÉTRIE INTÉGRÉE</h1>
+    <div id="results"></div>
+
+    <script>
+        const checks = [];
+
+        function test(name, fn) {
+            try {
+                fn();
+                checks.push({ name, pass: true });
+                console.log('✅', name);
+            } catch (e) {
+                checks.push({ name, pass: false, error: e.message });
+                console.log('❌', name, '-', e.message);
+            }
+        }
+
+        // Tests
+        test('telemetryState défini', () => {
+            if (typeof telemetryState !== 'object') throw new Error('telemetryState not found');
+        });
+
+        test('startTelemetrySimulation fonction', () => {
+            if (typeof startTelemetrySimulation !== 'function') throw new Error('Function missing');
+        });
+
+        test('pauseTelemetrySimulation fonction', () => {
+            if (typeof pauseTelemetrySimulation !== 'function') throw new Error('Function missing');
+        });
+
+        test('resetTelemetrySimulation fonction', () => {
+            if (typeof resetTelemetrySimulation !== 'function') throw new Error('Function missing');
+        });
+
+        test('addTelemetryEvent fonction', () => {
+            if (typeof addTelemetryEvent !== 'function') throw new Error('Function missing');
+        });
+
+        test('updateTelemDisplay fonction', () => {
+            if (typeof updateTelemDisplay !== 'function') throw new Error('Function missing');
+        });
+
+        test('Boutons présents', () => {
+            const btns = ['btn-start-telemetry', 'btn-pause-telemetry', 'btn-reset-telemetry', 'speed-slider'];
+            btns.forEach(id => {
+                const el = document.getElementById(id);
+                if (!el) throw new Error(`Button ${id} missing`);
+            });
+        });
+
+        // Afficher résultats
+        const resultsDiv = document.getElementById('results');
+        let html = '';
+        checks.forEach(c => {
+            html += `<div class="test ${c.pass ? 'pass' : 'fail'}">
+                ${c.pass ? '✅' : '❌'} ${c.name}
+                ${c.error ? ` - ${c.error}` : ''}
+            </div>`;
+        });
+
+        const passed = checks.filter(c => c.pass).length;
+        html += `<div style="margin-top: 20px; padding: 10px; background: #444;">
+            <strong>${passed}/${checks.length} vérifications réussies</strong>
+        </div>`;
+
+        resultsDiv.innerHTML = html;
+
+        if (passed === checks.length) {
+            console.log('✅ TÉLÉMÉTRIE INTÉGRÉE ET FONCTIONNELLE');
+        } else {
+            console.log('⚠️ CERTAINS TESTS ONT ÉCHOUÉ');
+        }
+    </script>
+</body>
+
+</html>

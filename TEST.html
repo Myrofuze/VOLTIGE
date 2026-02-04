@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Test Système Télémétrie</title>
+    <style>
+        body {
+            font-family: monospace;
+            background: #222;
+            color: #fff;
+            padding: 20px;
+        }
+
+        .test {
+            margin: 10px 0;
+            padding: 10px;
+            background: #333;
+            border-left: 3px solid #0f0;
+        }
+
+        .pass {
+            border-left-color: #0f0;
+            color: #0f0;
+        }
+
+        .fail {
+            border-left-color: #f00;
+            color: #f00;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>🧪 TEST SYSTÈME TÉLÉMÉTRIE MB v2.0</h1>
+
+    <div id="results"></div>
+
+    <script>
+        const results = [];
+
+        function test(name, fn) {
+            try {
+                fn();
+                results.push({ name, status: 'PASS', msg: 'OK' });
+            } catch (e) {
+                results.push({ name, status: 'FAIL', msg: e.message });
+            }
+        }
+
+        // Test 1: Vérifier que l'HTML a les bons IDs
+        test('HTML - IDs présents', () => {
+            const ids = ['telem-time', 'telem-battery', 'telem-speed', 'telem-altitude',
+                'telem-distance', 'telem-remaining', 'telem-waypoint',
+                'telem-battery-bar', 'telem-progress-bar', 'telem-events-log',
+                'telem-mission-params', 'telem-summary', 'mb-live-telemetry'];
+
+            ids.forEach(id => {
+                if (!document.getElementById(id) && typeof document === 'object') {
+                    throw new Error(`Missing ID: ${id}`);
+                }
+            });
+        });
+
+        // Test 2: Vérifier telemetryState
+        test('Télémétrie - État global', () => {
+            if (typeof telemetryState !== 'object') {
+                throw new Error('telemetryState not defined');
+            }
+            if (!telemetryState.hasOwnProperty('isRunning')) {
+                throw new Error('Missing telemetryState.isRunning');
+            }
+        });
+
+        // Test 3: Vérifier fonctions
+        test('Fonctions - startLiveTelemetry', () => {
+            if (typeof startLiveTelemetry !== 'function') {
+                throw new Error('startLiveTelemetry is not a function');
+            }
+        });
+
+        test('Fonctions - simulationStep', () => {
+            if (typeof simulationStep !== 'function') {
+                throw new Error('simulationStep is not a function');
+            }
+        });
+
+        test('Fonctions - calculatePowerConsumption', () => {
+            if (typeof calculatePowerConsumption !== 'function') {
+                throw new Error('calculatePowerConsumption is not a function');
+            }
+        });
+
+        test('Fonctions - addEvent', () => {
+            if (typeof addEvent !== 'function') {
+                throw new Error('addEvent is not a function');
+            }
+        });
+
+        // Afficher les résultats
+        function showResults() {
+            const div = document.getElementById('results');
+            let html = '';
+
+            results.forEach(r => {
+                html += `<div class="test ${r.status === 'PASS' ? 'pass' : 'fail'}">
+                    [${r.status}] ${r.name}: ${r.msg}
+                </div>`;
+            });
+
+            const passed = results.filter(r => r.status === 'PASS').length;
+            const total = results.length;
+
+            html += `<div style="margin-top: 20px; padding: 10px; background: #444;">
+                <strong>RÉSUMÉ: ${passed}/${total} tests réussis</strong>
+            </div>`;
+
+            div.innerHTML = html;
+        }
+
+        // Lancer les tests après chargement
+        setTimeout(showResults, 100);
+    </script>
+</body>
+
+</html>

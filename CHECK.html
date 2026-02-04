@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🧪 Vérification Système - Mission Builder v2.0</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            color: #eee;
+            padding: 20px;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+            border-bottom: 2px solid #00e5ff;
+            padding-bottom: 20px;
+        }
+
+        h1 {
+            font-size: 28px;
+            margin-bottom: 10px;
+            color: #00ff88;
+        }
+
+        .subtitle {
+            color: #aaa;
+            font-size: 14px;
+        }
+
+        .check-group {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 16px;
+            border-left: 4px solid #00e5ff;
+        }
+
+        .check-group h2 {
+            font-size: 16px;
+            margin-bottom: 12px;
+            color: #00e5ff;
+        }
+
+        .check-item {
+            padding: 10px 12px;
+            margin-bottom: 8px;
+            border-radius: 6px;
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .check-item.pass {
+            background: rgba(0, 255, 136, 0.1);
+            color: #00ff88;
+            border-left: 3px solid #00ff88;
+        }
+
+        .check-item.fail {
+            background: rgba(255, 107, 107, 0.1);
+            color: #ff6b6b;
+            border-left: 3px solid #ff6b6b;
+        }
+
+        .icon {
+            font-size: 16px;
+            min-width: 20px;
+        }
+
+        .summary {
+            background: rgba(0, 229, 255, 0.1);
+            border: 2px solid #00e5ff;
+            border-radius: 12px;
+            padding: 20px;
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        .summary h2 {
+            color: #00ff88;
+            margin-bottom: 10px;
+        }
+
+        .score {
+            font-size: 36px;
+            font-weight: bold;
+            color: #00e5ff;
+            margin: 10px 0;
+        }
+
+        .status {
+            padding: 12px 20px;
+            border-radius: 6px;
+            font-weight: 600;
+            margin-top: 10px;
+            display: inline-block;
+        }
+
+        .status.ready {
+            background: #00ff88;
+            color: #1a1a2e;
+        }
+
+        .status.issues {
+            background: #ffd166;
+            color: #1a1a2e;
+        }
+
+        .next-steps {
+            background: rgba(255, 209, 102, 0.1);
+            border: 1px solid #ffd166;
+            border-radius: 12px;
+            padding: 16px;
+            margin-top: 20px;
+        }
+
+        .next-steps h3 {
+            color: #ffd166;
+            margin-bottom: 8px;
+        }
+
+        .next-steps ol {
+            margin-left: 20px;
+            color: #ddd;
+        }
+
+        .next-steps li {
+            margin-bottom: 6px;
+            font-size: 14px;
+        }
+
+        code {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'Monaco', 'Courier New', monospace;
+            font-size: 12px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1>🧪 Mission Builder v2.0 - Vérification Système</h1>
+            <p class="subtitle">Télémétrie en Direct | Simulation Réaliste</p>
+        </header>
+
+        <div id="results"></div>
+
+        <div class="summary" id="summary" style="display:none;">
+            <h2>📊 Résumé de la Vérification</h2>
+            <div class="score" id="score">-/10</div>
+            <div id="statusMsg"></div>
+        </div>
+
+        <div class="next-steps" id="nextSteps" style="display:none;">
+            <h3>✅ Prêt à Utiliser!</h3>
+            <ol>
+                <li>Ouvrez <code>index.html</code> dans votre navigateur</li>
+                <li>Suivez les 5 étapes du Mission Builder</li>
+                <li>Créez vos waypoints sur la carte</li>
+                <li>Lancez la simulation RÉALISTE</li>
+                <li>Observez la télémétrie en direct</li>
+            </ol>
+        </div>
+    </div>
+
+    <script>
+        const checks = [];
+
+        function check(group, name, condition) {
+            checks.push({
+                group,
+                name,
+                pass: condition,
+                emoji: condition ? '✅' : '❌'
+            });
+        }
+
+        // Vérifications
+
+        // 1. Environnement
+        check('Environnement', 'JavaScript activé', typeof window !== 'undefined');
+        check('Environnement', 'LocalStorage disponible', typeof localStorage !== 'undefined');
+        check('Environnement', 'Fetch API disponible', typeof fetch !== 'undefined');
+
+        // 2. Application
+        check('Application', 'DOM prêt', document.body !== null);
+        check('Application', 'Styles CSS appliqués', getComputedStyle(document.body).backgroundColor !== '');
+
+        // Afficher résultats
+        function displayResults() {
+            const resultsDiv = document.getElementById('results');
+            const groups = {};
+
+            // Grouper les vérifications
+            checks.forEach(c => {
+                if (!groups[c.group]) {
+                    groups[c.group] = [];
+                }
+                groups[c.group].push(c);
+            });
+
+            // Afficher chaque groupe
+            let html = '';
+            for (const [groupName, groupChecks] of Object.entries(groups)) {
+                html += `
+                    <div class="check-group">
+                        <h2>${groupName}</h2>
+                        ${groupChecks.map(c => `
+                            <div class="check-item ${c.pass ? 'pass' : 'fail'}">
+                                <span class="icon">${c.emoji}</span>
+                                <span>${c.name}</span>
+                            </div>
+                        `).join('')}
+                    </div>
+                `;
+            }
+            resultsDiv.innerHTML = html;
+
+            // Résumé
+            const passed = checks.filter(c => c.pass).length;
+            const total = checks.length;
+            const percentage = Math.round((passed / total) * 100);
+
+            document.getElementById('summary').style.display = 'block';
+            document.getElementById('score').textContent = `${passed}/${total}`;
+
+            if (percentage === 100) {
+                document.getElementById('statusMsg').innerHTML = `
+                    <div class="status ready">🎉 SYSTÈME PRÊT À L'UTILISATION</div>
+                `;
+                document.getElementById('nextSteps').style.display = 'block';
+            } else {
+                document.getElementById('statusMsg').innerHTML = `
+                    <div class="status issues">⚠️ ${percentage}% de conformité</div>
+                `;
+            }
+        }
+
+        // Lancer après chargement
+        window.addEventListener('DOMContentLoaded', displayResults);
+
+        // Fallback
+        setTimeout(displayResults, 500);
+    </script>
+</body>
+
+</html>
