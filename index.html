@@ -746,11 +746,11 @@ canvas#oscCanvas { display:block; width:100%; height:130px; }
       <span>CNN Inference &nbsp;<em>33ms @ 30fps</em></span>
       <span>Helix Clutch &nbsp;<em>&lt;50ms</em></span>
       <span>Batterie &nbsp;<em>420 Wh · Molicel P50B 6S</em></span>
-      <span>TWR &nbsp;<em>1.96 : 1</em></span>
+      <span>TWR &nbsp;<em> 2.29:1 (ou 5960/3000 = 1.99:1 si 3kg) : 1</em></span>
       <span>Profondeur max &nbsp;<em>20m</em></span>
-      <span>Vitesse max air &nbsp;<em>160 km/h</em></span>
+      <span>Vitesse max air &nbsp;<em>180+ km/h</em></span>
       <span>Autonomie eau lente &nbsp;<em>130–160 min</em></span>
-      <span>Moteurs &nbsp;<em>4× DarwinFPV 2307.5 V3</em></span>
+      <span>Moteurs &nbsp;<em>4× T-Motor F40 Pro V 1950KV 6S</em></span>
       <span>IA &nbsp;<em>NVIDIA Jetson Orin Nano Super · 40 TOPS</em></span>
       <span>IMU &nbsp;<em>MPU6050 @ 1kHz</em></span>
       <span>EPM Force &nbsp;<em>25,5 N · 0W continu</em></span>
@@ -761,11 +761,11 @@ canvas#oscCanvas { display:block; width:100%; height:130px; }
       <span>CNN Inference &nbsp;<em>33ms @ 30fps</em></span>
       <span>Helix Clutch &nbsp;<em>&lt;50ms</em></span>
       <span>Batterie &nbsp;<em>420 Wh · Molicel P50B 6S</em></span>
-      <span>TWR &nbsp;<em>1.96 : 1</em></span>
+      <span>TWR &nbsp;<em> 2.29:1 (ou 5960/3000 = 1.99:1 si 3kg) : 1</em></span>
       <span>Profondeur max &nbsp;<em>20m</em></span>
-      <span>Vitesse max air &nbsp;<em>160 km/h</em></span>
+      <span>Vitesse max air &nbsp;<em>180+ km/h</em></span>
       <span>Autonomie eau lente &nbsp;<em>130–160 min</em></span>
-      <span>Moteurs &nbsp;<em>4× DarwinFPV 2307.5 V3</em></span>
+      <span>Moteurs &nbsp;<em>4× T-Motor F40 Pro V 1950KV 6S</em></span>
       <span>IA &nbsp;<em>NVIDIA Jetson Orin Nano Super · 40 TOPS</em></span>
       <span>IMU &nbsp;<em>MPU6050 @ 1kHz</em></span>
       <span>EPM Force &nbsp;<em>25,5 N · 0W continu</em></span>
@@ -788,7 +788,8 @@ canvas#oscCanvas { display:block; width:100%; height:130px; }
     <button id="nav-comm" onclick="showPage('comm')">Comm</button>
     <button id="nav-prog" onclick="showPage('prog')">Code</button>
     <button id="nav-lexique" onclick="showPage('lexique')">Lexique</button>
-    <span class="nav-badge">JAN 2026</span>
+    <button onclick="window.open('index_old.html','_blank')" style="border:1px solid var(--border-h);">Archive V1 ↗</button>
+    <span class="nav-badge">FEV 2026</span>
   </div>
   <div class="theme-switcher">
     <div class="theme-btn dark active-theme" id="btn-dark" onclick="setTheme('dark')" title="Thème sombre"></div>
@@ -810,17 +811,17 @@ canvas#oscCanvas { display:block; width:100%; height:130px; }
       <span class="word-sub">// Drone amphibie VTOL — vol · surface · plongée active · IA embarquée</span>
     </h1>
     <p class="hero-desc">
-      VOLTIGE est un drone hybride VTOL capable de voler à <strong>160 km/h</strong>, de plonger activement à <strong>20 mètres</strong> et de basculer entre les deux milieux en <strong>&lt;50ms</strong> grâce au système Helix à embrayage EPM bistable. Stabilisation PID à <strong>&lt;20ms</strong>, CNN embarqué à 30 FPS. Budget prototype : <strong>&lt; 5 000 €</strong>.
+      VOLTIGE est un drone hybride VTOL capable de voler à <strong>180+ km/h</strong>, de plonger activement à <strong>20 mètres</strong> et de basculer entre les deux milieux en <strong>&lt;50ms</strong> grâce au système Helix à embrayage EPM bistable. Stabilisation PID à <strong>&lt;20ms</strong>, CNN embarqué à 30 FPS. Budget prototype : <strong>&lt; 5 000 €</strong>.
     </p>
     <div class="hero-actions">
       <button class="btn-primary" onclick="showPage('helix')">Système Helix →</button>
       <button class="btn-ghost" onclick="showPage('physics')">Données physiques</button>
     </div>
     <div class="hero-stats">
-      <div class="hero-stat"><div class="val" data-count="160" data-suffix=" km/h">0</div><div class="unit">vitesse max air</div></div>
+      <div class="hero-stat"><div class="val" data-count="180" data-suffix="+ km/h">0</div><div class="unit">vitesse max air</div></div>
       <div class="hero-stat"><div class="val" data-count="20" data-suffix="m">0</div><div class="unit">profondeur active</div></div>
-      <div class="hero-stat"><div class="val" data-count="5100" data-suffix="g">0</div><div class="unit">poussée totale</div></div>
-      <div class="hero-stat"><div class="val">1.96:1</div><div class="unit">TWR ratio</div></div>
+      <div class="hero-stat"><div class="val" data-count="5960" data-suffix="g">0</div><div class="unit">poussée totale</div></div>
+      <div class="hero-stat"><div class="val">~2.07:1</div><div class="unit">TWR ratio</div></div>
       <div class="hero-stat"><div class="val" data-count="160" data-suffix="+ min">0</div><div class="unit">autonomie eau</div></div>
     </div>
     <div class="perf-badge-row">
@@ -841,8 +842,8 @@ canvas#oscCanvas { display:block; width:100%; height:130px; }
       <div class="glass-card pillar reveal">
         <div class="pillar-num">01</div><div class="pillar-icon">🚀</div>
         <h3>VTOL — Décollage vertical</h3>
-        <p>Quatre moteurs DarwinFPV 2307.5 V3 génèrent 5 100 g de poussée pour un drone de 2 600 g. TWR 1.96:1, PID sur IMU MPU6050 à 1 kHz, stabilisation &lt;20ms. Décollage sans piste, n'importe où.</p>
-        <div class="pillar-spec">5 100 g · TWR 1.96:1 · IMU 1kHz · &lt;20ms PID</div>
+        <p>Quatre moteurs DarwinFPV 2307.5 V3 génèrent ~5 960 g de poussée pour un drone de 2 600 g. TWR ~2.07:1, PID sur IMU MPU6050 à 1 kHz, stabilisation &lt;20ms. Décollage sans piste, n'importe où.</p>
+        <div class="pillar-spec">~5 960 g · TWR ~2.07:1 · IMU 1kHz · &lt;20ms PID</div>
       </div>
       <div class="glass-card pillar reveal reveal-delay-1">
         <div class="pillar-num">02</div><div class="pillar-icon">⚙️</div>
@@ -952,8 +953,8 @@ canvas#oscCanvas { display:block; width:100%; height:130px; }
     <div class="compare-card hero-card reveal reveal-delay-1">
       <div style="position:absolute;top:11px;right:13px;font-family:'DM Mono',monospace;font-size:9px;background:rgba(0,229,255,0.1);border:1px solid rgba(0,229,255,0.2);color:var(--neon);padding:2px 7px;border-radius:4px;">VOLTIGE</div>
       <h4>VOLTIGE</h4><div class="brand">DRONE AMPHIBIE VTOL</div>
-      <div class="compare-row"><span class="label">Vol aérien</span><span class="val check">✓ VTOL · 160 km/h</span></div>
-      <div class="compare-row"><span class="label">Vitesse max</span><span class="val" style="color:var(--neon)">160 km/h</span></div>
+      <div class="compare-row"><span class="label">Vol aérien</span><span class="val check">✓ VTOL · 180+ km/h</span></div>
+      <div class="compare-row"><span class="label">Vitesse max</span><span class="val" style="color:var(--neon)">180+ km/h</span></div>
       <div class="compare-row"><span class="label">Autonomie air</span><span class="val check">✓ 25–45 min</span></div>
       <div class="compare-row"><span class="label">Navigation eau</span><span class="val check">✓ Active · 30 km/h</span></div>
       <div class="compare-row"><span class="label">Plongée active</span><span class="val check">✓ 20m</span></div>
@@ -999,19 +1000,19 @@ canvas#oscCanvas { display:block; width:100%; height:130px; }
   <div class="physics-grid">
     <div class="phys-card reveal">
       <div class="phys-card-header"><div class="phys-icon">⚖️</div><h3>Poids & Poussée</h3></div>
-      <p style="font-size:12.5px;color:var(--muted);line-height:1.7;">Masse totale 2,6 kg. Les 4 moteurs DarwinFPV 2307.5 V3 génèrent chacun ≈1 275 g de poussée maximale.</p>
+      <p style="font-size:12.5px;color:var(--muted);line-height:1.7;">Masse totale 2,6 kg. Les 4 moteurs DarwinFPV 2307.5 V3 génèrent chacun ≈1 490 g de poussée maximale.</p>
       <div class="formula-box">P = m × g = 2,6 × 9,81 = <strong>25,5 N</strong><span class="formula-label">POIDS TOTAL DU DRONE</span></div>
-      <div class="formula-box" style="margin-top:8px;">Poussée = 4 × 1275 g = <strong>5 100 g → 50 N</strong><span class="formula-label">4× DARWINFPV 2307.5 V3</span></div>
+      <div class="formula-box" style="margin-top:8px;">Poussée = 4 × 1490 g = <strong>5 960 g → 58,5 N</strong><span class="formula-label">4× T-MOTOR F40 PRO V 1950KV 6S</span></div>
     </div>
     <div class="phys-card reveal reveal-delay-1">
       <div class="phys-card-header"><div class="phys-icon">📊</div><h3>Rapport Poussée/Poids (TWR)</h3></div>
-      <p style="font-size:12.5px;color:var(--muted);line-height:1.7;">TWR de VOLTIGE : <strong style="color:var(--accent)">1.96:1</strong>. Les moteurs soulèvent près du double du poids. Minimum requis pour manœuvres d'urgence : 1.5:1.</p>
+      <p style="font-size:12.5px;color:var(--muted);line-height:1.7;">TWR de VOLTIGE : <strong style="color:var(--accent)">~2.07:1</strong>. Les moteurs soulèvent près du double du poids. Minimum requis pour manœuvres d'urgence : 1.5:1.</p>
       <div style="margin-top:14px;">
-        <div style="display:flex;justify-content:space-between;font-size:10.5px;color:var(--muted2);font-family:'DM Mono',monospace;margin-bottom:5px;"><span>VOLTIGE TWR: 1.96:1</span><span style="color:var(--green)">✓ Sécurisé</span></div>
+        <div style="display:flex;justify-content:space-between;font-size:10.5px;color:var(--muted2);font-family:'DM Mono',monospace;margin-bottom:5px;"><span>VOLTIGE TWR: ~2.07:1</span><span style="color:var(--green)">✓ Sécurisé</span></div>
         <div class="twr-bar-wrap"><div class="twr-bar" id="twrBar"></div></div>
         <div class="twr-labels"><span>0</span><span style="color:var(--red)">Min: 1.5</span><span>3.0 (FPV)</span></div>
       </div>
-      <div class="formula-box" style="margin-top:12px;">TWR = 5 100 / 2 600 = <strong>1.96 ≈ 2.0</strong><span class="formula-label">THRUST-TO-WEIGHT RATIO</span></div>
+      <div class="formula-box" style="margin-top:12px;">TWR = 5 960 / 2 700 = <strong>2.07 : 1</strong><span class="formula-label">T-MOTOR F40 PRO V · POUSSÉE SUSTENTATION</span></div>
     </div>
     <div class="phys-card reveal">
       <div class="phys-card-header"><div class="phys-icon">💨</div><h3>Aérodynamique</h3></div>
@@ -1046,7 +1047,7 @@ canvas#oscCanvas { display:block; width:100%; height:130px; }
         <tr><td class="td-mode">Stationnaire (hover)</td><td class="td-highlight">0 km/h</td><td>470 W</td><td class="td-warn">30–32 min</td><td class="td-muted">— statique —</td></tr>
         <tr><td class="td-mode">Économique</td><td class="td-highlight">50 km/h</td><td>510 W</td><td class="td-good">27–32 min</td><td>22–26 km</td></tr>
         <tr><td class="td-mode">Croisière</td><td class="td-highlight">70 km/h</td><td>510 W</td><td class="td-good">25–28 min</td><td>33–40 km</td></tr>
-        <tr><td class="td-mode">Maximum</td><td class="td-highlight">150 km/h</td><td>650 W</td><td class="td-warn">13–19 min</td><td>32–42 km</td></tr>
+        <tr><td class="td-mode">Maximum</td><td class="td-highlight">180+ km/h</td><td>650 W</td><td class="td-warn">13–19 min</td><td>32–42 km</td></tr>
       </tbody></table>
     </div>
     <div class="data-table-wrap reveal" style="margin-top:14px;">
@@ -1335,7 +1336,7 @@ canvas#oscCanvas { display:block; width:100%; height:130px; }
       <div class="glass-card reveal" style="border-color:rgba(79,195,247,0.15);">
         <div style="font-size:22px;margin-bottom:11px;">💨</div>
         <h3 style="font-size:13.5px;font-weight:700;margin-bottom:8px;">Air — ρ ≈ 1,225 kg/m³</h3>
-        <p style="font-size:12.5px;color:var(--muted);line-height:1.7;">Hélice 5,5″ à pas élevé. RPM opérationnel : 10 000–20 000. Haute vitesse, faible couple. Optimisée pour accélérer une masse d'air vers le bas.</p>
+        <p style="font-size:12.5px;color:var(--muted);line-height:1.7;">Hélice 6" (15.2cm) à pas élevé. RPM opérationnel : 10 000–20 000. Haute vitesse, faible couple. Optimisée pour accélérer une masse d'air vers le bas.</p>
         <div class="formula-box" style="margin-top:12px;">T = K<sub>T</sub> × ρ × n² × D⁴<span class="formula-label">POUSSÉE HÉLICE</span></div>
       </div>
       <div class="glass-card reveal reveal-delay-1" style="background:rgba(0,229,255,0.04);border-color:rgba(0,229,255,0.2);">
@@ -1370,7 +1371,7 @@ canvas#oscCanvas { display:block; width:100%; height:130px; }
         <div class="helix-state-title">🌊 État DÉSENGAGÉ — Mode Eau</div>
         <div class="helix-state-badge badge-eau">MODE EAU · ACTIF</div>
         <p>Avant l'entrée dans l'eau, le contrôleur réduit momentanément le RPM à ~2 000 tr/min (Fc chute de 123N à 2,18N), puis envoie une impulsion inversée dans la bobine.</p>
-        <p>L'AlNiCo bascule en anti-parallèle au NdFeB : le flux se boucle en interne, le champ externe tombe à <strong style="color:var(--accent)">zéro</strong>. Le ressort wave-spring repousse l'armature de 0,5mm. L'hélice 5,5″ est libérée. Seule l'hélice 2″ reste active.</p>
+        <p>L'AlNiCo bascule en anti-parallèle au NdFeB : le flux se boucle en interne, le champ externe tombe à <strong style="color:var(--accent)">zéro</strong>. Le ressort wave-spring repousse l'armature de 0,5mm. L'Hélice 6" (15.2cm) est libérée. Seule l'hélice 2″ reste active.</p>
         <div class="formula-box">Fc @ 2000 RPM = <strong>2,18 N</strong><br>Ff = μ × Fc = 0,15 × 2,18 = <strong>0,33 N</strong><span class="formula-label">FRICTION RÉSIDUELLE NÉGLIGEABLE</span></div>
       </div>
     </div>
@@ -1683,7 +1684,7 @@ canvas#oscCanvas { display:block; width:100%; height:130px; }
           <div class="drt-dot">02</div>
           <div class="drt-content">
             <h5>Basculement Helix &lt;50ms<span class="drt-tag">EPM</span></h5>
-            <p>Impulsion EPM inversée. L'hélice 5,5″ se désengage. Seule l'hélice eau 2″ reste active. Le drone plonge selon l'axe programmé.</p>
+            <p>Impulsion EPM inversée. L'Hélice 6" (15.2cm) se désengage. Seule l'hélice eau 2″ reste active. Le drone plonge selon l'axe programmé.</p>
           </div>
         </div>
         <div class="drt-step">
@@ -1710,7 +1711,6 @@ canvas#oscCanvas { display:block; width:100%; height:130px; }
       </div>
     </div>
   </div>
-
   <!-- NOTE TECHNIQUE -->
   <div style="margin-top:40px;padding:20px 24px;background:rgba(255,213,63,0.05);border:1px solid rgba(255,213,63,0.15);border-radius:14px;" class="reveal">
     <div style="font-family:'DM Mono',monospace;font-size:10px;color:var(--warn);margin-bottom:9px;">// NOTE TECHNIQUE — PROTOTYPE V1</div>
@@ -1968,7 +1968,7 @@ const LEXIQUE = [
     abbr: "TWR",
     full: "Thrust-to-Weight Ratio",
     desc: "Rapport poussée sur poids. Un TWR de 1.0 = le drone peut tout juste se soulever. Un TWR de 2.0 = il peut pousser 2× son propre poids. Plus c'est élevé, plus le drone est agile et réactif aux corrections d'urgence.",
-    example: "VOLTIGE : TWR = 5100g / 2600g = 1.96. Minimum recommandé pour les manœuvres d'urgence : 1.5.",
+    example: "VOLTIGE : TWR = 5100g / 2600g =  2.29:1 (ou 5960/3000 = 1.99:1 si 3kg). Minimum recommandé pour les manœuvres d'urgence : 1.5.",
     cat: "Propulsion & Mécanique"
   },
   {
