@@ -751,7 +751,7 @@ canvas#oscCanvas { display:block; width:100%; height:130px; }
       <span>Vitesse max air &nbsp;<em>180+ km/h</em></span>
       <span>Autonomie eau lente &nbsp;<em>130–160 min</em></span>
       <span>Moteurs &nbsp;<em>4× T-Motor F40 Pro V 1950KV 6S</em></span>
-      <span>IA &nbsp;<em>NVIDIA Jetson Orin Nano Super · 40 TOPS</em></span>
+      <span>IA &nbsp;<em>NVIDIA Jetson Orin NX Super · 130 TOPS</em></span>
       <span>IMU &nbsp;<em>MPU6050 @ 1kHz</em></span>
       <span>EPM Force &nbsp;<em>25,5 N · 0W continu</em></span>
       <span>Poids &nbsp;<em>2,6 kg</em></span>
@@ -766,7 +766,7 @@ canvas#oscCanvas { display:block; width:100%; height:130px; }
       <span>Vitesse max air &nbsp;<em>180+ km/h</em></span>
       <span>Autonomie eau lente &nbsp;<em>130–160 min</em></span>
       <span>Moteurs &nbsp;<em>4× T-Motor F40 Pro V 1950KV 6S</em></span>
-      <span>IA &nbsp;<em>NVIDIA Jetson Orin Nano Super · 40 TOPS</em></span>
+      <span>IA &nbsp;<em>NVIDIA Jetson Orin NX Super · 130 TOPS</em></span>
       <span>IMU &nbsp;<em>MPU6050 @ 1kHz</em></span>
       <span>EPM Force &nbsp;<em>25,5 N · 0W continu</em></span>
       <span>Poids &nbsp;<em>2,6 kg</em></span>
@@ -854,8 +854,8 @@ canvas#oscCanvas { display:block; width:100%; height:130px; }
       <div class="glass-card pillar reveal reveal-delay-2">
         <div class="pillar-num">03</div><div class="pillar-icon">🤖</div>
         <h3>IA embarquée — NVIDIA Jetson</h3>
-        <p>Jetson Orin Nano Super (40 TOPS, 8GB LPDDR5) : CNN object detection à 30fps, terrain-following LIDAR TFmini-S, RTH autonome. Tout tourne en local, zéro connexion internet.</p>
-        <div class="pillar-spec">CNN 30fps · LIDAR · RTH · 40 TOPS · Local</div>
+        <p>Jetson Orin NX Super (130 TOPS, 16GB LPDDR5) : CNN object detection à 30fps, terrain-following LIDAR TFmini-S, RTH autonome. Tout tourne en local, zéro connexion internet.</p>
+        <div class="pillar-spec">CNN 30fps · LIDAR · RTH · 130 TOPS · Local</div>
       </div>
     </div>
   </div>
@@ -1092,7 +1092,7 @@ canvas#oscCanvas { display:block; width:100%; height:130px; }
     <div class="bench-card reveal reveal-delay-1">
       <div class="bench-label">CNN INFERENCE</div>
       <div class="bench-value" data-count="33" data-suffix="ms">0ms</div>
-      <div class="bench-unit">Jetson Orin Nano Super · ExploreHD</div>
+      <div class="bench-unit">Jetson Orin NX Super · ExploreHD</div>
       <div class="bench-sub">CNN INT8 quantized, offline-trained. Détecte personnes, gilets, débris. 100% local.</div>
       <div class="bench-delta">30 FPS · 640×480 · INT8</div>
     </div>
@@ -1128,7 +1128,7 @@ canvas#oscCanvas { display:block; width:100%; height:130px; }
   <div style="margin-top:52px;">
     <div class="section-tag">// ARCHITECTURE PROCESSEURS</div>
     <h2 class="section-title" style="font-size:clamp(19px,3vw,28px);">Deux cerveaux, rôles distincts.</h2>
-    <p style="font-size:13.5px;color:var(--muted);margin-bottom:18px;line-height:1.7;">FC dédié (ARM Cortex-M) pour le temps réel critique (PID, ESC, failsafes) + Raspberry Pi 4B pour la logique mission + Jetson Orin Nano Super pour l'IA. Cette séparation garantit que l'inférence CNN ne peut jamais bloquer la stabilisation.</p>
+    <p style="font-size:13.5px;color:var(--muted);margin-bottom:18px;line-height:1.7;">FC dédié (ARM Cortex-M) pour le temps réel critique (PID, ESC, failsafes) + Raspberry Pi 4B pour la logique mission + Jetson Orin NX Super pour l'IA. Cette séparation garantit que l'inférence CNN ne peut jamais bloquer la stabilisation.</p>
     <div class="cpu-gpu-layout">
       <div class="usage-card reveal">
         <div class="usage-title">FC dédié (ARM Cortex-M) + Raspberry Pi 4B</div>
@@ -1139,8 +1139,8 @@ canvas#oscCanvas { display:block; width:100%; height:130px; }
         <div class="usage-row"><div class="usage-row-header"><span>Failsafes + monitoring</span><span>15%</span></div><div class="usage-bar-track"><div class="usage-bar-fill" style="background:rgba(255,213,63,0.7);" data-width="15"></div></div></div>
       </div>
       <div class="usage-card reveal reveal-delay-1">
-        <div class="usage-title">NVIDIA Jetson Orin Nano Super — IA</div>
-        <div class="usage-subtitle">1024-core GPU · 40 TOPS · 8GB LPDDR5 · JetPack 6</div>
+        <div class="usage-title">NVIDIA Jetson Orin NX Super — IA</div>
+        <div class="usage-subtitle">1024-core GPU · 130 TOPS · 16GB LPDDR5 · JetPack 6</div>
         <div class="usage-row"><div class="usage-row-header"><span>CNN inference (GPU)</span><span>65%</span></div><div class="usage-bar-track"><div class="usage-bar-fill" style="background:var(--neon);" data-width="65"></div></div></div>
         <div class="usage-row"><div class="usage-row-header"><span>Terrain-following LIDAR</span><span>20%</span></div><div class="usage-bar-track"><div class="usage-bar-fill" style="background:var(--accent);" data-width="20"></div></div></div>
         <div class="usage-row"><div class="usage-row-header"><span>Path planning (A*)</span><span>10%</span></div><div class="usage-bar-track"><div class="usage-bar-fill" style="background:var(--accent3);" data-width="10"></div></div></div>
@@ -1155,7 +1155,7 @@ canvas#oscCanvas { display:block; width:100%; height:130px; }
     <p style="font-size:13.5px;color:var(--muted);margin-bottom:18px;line-height:1.7;">Sur le FC temps réel, toute la mémoire critique (PID state, ESC buffers, sensor rings) est allouée statiquement au démarrage. Aucun malloc() dans la boucle temps réel. Sur le Jetson, le modèle CNN est chargé en RAM au boot : zéro lecture disque pendant le vol.</p>
     <div class="mem-layout">
       <div class="mem-card reveal">
-        <div class="mem-title">Jetson — RAM 8GB LPDDR5</div><div class="mem-total">8 192 MB total</div>
+        <div class="mem-title">Jetson — RAM 16GB LPDDR5</div><div class="mem-total">8 192 MB total</div>
         <div class="mem-bar-stacked">
           <div class="mem-seg" style="background:var(--neon);opacity:0.8;" data-width="6.1"></div>
           <div class="mem-seg" style="background:var(--accent);opacity:0.8;" data-width="18.3"></div>
@@ -1799,14 +1799,14 @@ canvas#oscCanvas { display:block; width:100%; height:130px; }
       <div class="code-status"><span>✓ Testé</span><span>🔒 Failsafe actif</span><span>⏱ Trigger: 10s</span></div>
     </div>
     <div class="prog-text">
-      <h3>IA Embarquée — NVIDIA Jetson Orin Nano Super</h3>
+      <h3>IA Embarquée — NVIDIA Jetson Orin NX Super</h3>
       <p>Trois missions : détection CNN à 30fps (personnes, gilets orange, débris), terrain-following LIDAR TFmini-S, et RTH autonome sur perte de signal &gt;10s.</p>
       <p>La complexité du RTH sous-marin : GPS inopérant dans l'eau. Le drone doit remonter en surface, attendre un fix GPS, calculer sa route, éviter les obstacles. Si zone dangereuse : hover à 5m.</p>
       <div style="display:flex;gap:7px;flex-wrap:wrap;margin-top:12px;">
         <div class="stat-pill">CNN 30fps</div>
         <div class="stat-pill">LIDAR TFmini-S</div>
         <div class="stat-pill">RTH auto</div>
-        <div class="stat-pill">40 TOPS</div>
+        <div class="stat-pill">130 TOPS</div>
       </div>
     </div>
   </div>
@@ -1990,14 +1990,14 @@ const LEXIQUE = [
     abbr: "CNN",
     full: "Convolutional Neural Network",
     desc: "Réseau de neurones convolutif. Un type d'intelligence artificielle spécialisée dans l'analyse d'images. Il 'apprend' à reconnaître des objets (personnes, gilets, débris) en étudiant des milliers d'images d'exemple. Fonctionne entièrement en local, sans internet.",
-    example: "VOLTIGE détecte des naufragés à 30 images/seconde avec son CNN embarqué sur le Jetson Orin Nano Super.",
+    example: "VOLTIGE détecte des naufragés à 30 images/seconde avec son CNN embarqué sur le Jetson Orin NX Super.",
     cat: "Intelligence Artificielle"
   },
   {
     abbr: "TOPS",
     full: "Tera Operations Per Second",
     desc: "Billion d'opérations mathématiques par seconde. Mesure la puissance de calcul d'une puce IA. Plus c'est élevé, plus la puce peut analyser de données rapidement (images, LIDAR, etc.).",
-    example: "Le Jetson Orin Nano Super atteint 40 TOPS. Cela suffit pour faire tourner un CNN à 30fps en temps réel.",
+    example: "Le Jetson Orin NX Super atteint 130 TOPS. Cela suffit pour faire tourner un CNN à 30fps en temps réel.",
     cat: "Intelligence Artificielle"
   },
   {
@@ -2385,4 +2385,5 @@ window.onload = () => {
 </script>
 </body>
 </html>
+
 
